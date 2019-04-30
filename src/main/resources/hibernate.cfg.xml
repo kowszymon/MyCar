@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database Connection Settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/myCar_db?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">baba</property>
+        <!-- Connection Pool Size (built-in) -->
+        <property name="connection.pool.size">10</property>
+        <!-- SQL Dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- Disable the second-level cache -->
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- Only validate database structure -->
+            <property name="hbm2ddl.auto">create</property>
+        <!-- Mention here all the model classes along with their package name -->
+        <mapping class="kowszymon.ownProjects.myCar.entities.Car"/>
+        <mapping class="kowszymon.ownProjects.myCar.entities.Category"/>
+        <mapping class="kowszymon.ownProjects.myCar.entities.Expense"/>
+        <mapping class="kowszymon.ownProjects.myCar.entities.Income"/>
+
+    </session-factory>
+</hibernate-configuration>
