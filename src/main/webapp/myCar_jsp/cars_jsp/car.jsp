@@ -59,7 +59,7 @@
                 <select name = "fuel">
                     <option></option>
                     <c:forEach items="${fuelTypes}" var="fuel">
-                        <option value="${fuel}">${fuel.name}</option>
+                        <option value="${fuel}" ${fuel.name.equals(selectedFuel) ? 'selected = "selected"' : ''}>${fuel.name}</option>
                     </c:forEach>
                 </select>
         </div>

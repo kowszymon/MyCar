@@ -33,9 +33,16 @@ public class CarEditController extends HttpServlet {
 
 
 
+
+
         try {
             CarDto carDto = carService.findCarById(carId);
             req.setAttribute("car", carDto);
+            if(carDto.getFuel() == null){
+                req.setAttribute("selectedFuel", "");
+            } else {
+                req.setAttribute("selectedFuel", carDto.getFuel());
+            }
         } catch (CarNotFoundException e) {
             req.setAttribute("errorMsg", "Samochód o id " + carId + " nie został znaleziony w bazie");
         }

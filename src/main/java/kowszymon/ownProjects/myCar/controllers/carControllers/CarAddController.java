@@ -25,6 +25,8 @@ public class CarAddController extends HttpServlet {
 
         req.setAttribute("fuelTypes", fuelTypes);
 
+        req.setAttribute("selectedFuel", "");
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/cars_jsp/car.jsp");
         requestDispatcher.forward(req, resp);
     }
