@@ -57,6 +57,7 @@
         <div class="form-group">
             <label>Paliwo</label>
                 <select name = "fuel">
+                    <option></option>
                     <c:forEach items="${fuelTypes}" var="fuel">
                         <option value="${fuel}">${fuel.name}</option>
                     </c:forEach>
@@ -67,7 +68,7 @@
 
         <div class="form-group">
             <label for="course">Przebieg</label>
-            <input type="number" class="form-control" id="course" placeholder="Podaj przebieg" name="course" value ="${car.course}">
+            <input type="number" min=0 class="form-control" id="course" placeholder="Podaj przebieg" name="course" value ="${car.course}">
         </div>
         <input type="hidden" name="id" value="${car.id}">
 

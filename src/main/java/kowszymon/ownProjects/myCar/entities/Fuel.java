@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 public enum Fuel {
 
-    EMPTY(""), PB95("PB95"), PB98("PB98"), LPG("LPG"), ON("ON");
+    PB95("PB95"), PB98("PB98"), LPG("LPG"), ON("ON");
 
     private String name;
 

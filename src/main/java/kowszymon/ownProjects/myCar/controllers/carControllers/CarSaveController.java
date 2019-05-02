@@ -64,7 +64,10 @@ public class CarSaveController extends HttpServlet {
             formCarDto.setName(name);
             formCarDto.setMake(make);
             formCarDto.setModel(model);
-            formCarDto.setFuel(fuel);
+
+            if(!"".equals(fuel)) {
+                formCarDto.setFuel(fuel);
+            }
             formCarDto.setFuelConsumptionPer100km(carFuelConsumption);
             formCarDto.setCourse(carCourse);
             carService.save(formCarDto);

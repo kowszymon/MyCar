@@ -14,7 +14,7 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="hibernate.show_sql">true</property>
         <!-- Only validate database structure -->
-            <property name="hbm2ddl.auto">create</property>
+            <property name="hbm2ddl.auto">validate</property>
         <!-- Mention here all the model classes along with their package name -->
         <mapping class="kowszymon.ownProjects.myCar.entities.Car"/>
         <mapping class="kowszymon.ownProjects.myCar.entities.Category"/>
