@@ -7,13 +7,13 @@ import java.io.IOException;
 
 public class FuelPricesServiceTest {
 
-   private FuelPricesService fuelPricesService = new FuelPricesService();
+    FuelPricesService fuelPricesService = new FuelPricesService();
 
 
     @Test
     public void shouldReturnCurrentONPrice() {
         double result = 0.0;
-        try{result = FuelPricesService.getAverageONPrice();}
+        try{result = fuelPricesService.getAverageONPrice();}
         catch (IOException e){
             e.getMessage();
         }
@@ -23,7 +23,7 @@ public class FuelPricesServiceTest {
     @Test
     public void shouldReturnCurrentPB95Price() {
         double result = 0.0;
-        try{result = FuelPricesService.getAveragePB95Price();}
+        try{result = fuelPricesService.getAveragePB95Price();}
         catch (IOException e){
             e.getMessage();
         }
@@ -33,7 +33,7 @@ public class FuelPricesServiceTest {
     @Test
     public void shouldReturnCurrentPB98Price() {
         double result = 0.0;
-        try{result = FuelPricesService.getAveragePB98Price();}
+        try{result = fuelPricesService.getAveragePB98Price();}
         catch (IOException e){
             e.getMessage();
         }
@@ -43,7 +43,7 @@ public class FuelPricesServiceTest {
     @Test
     public void shouldReturnCurrentLPGPrice() {
        double result = 0.0;
-       try{result = FuelPricesService.getAverageLPGPrice();}
+       try{result = fuelPricesService.getAverageLPGPrice();}
        catch (IOException e){
            e.getMessage();
        }

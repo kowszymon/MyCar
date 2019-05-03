@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class FuelPricesService {
 
-    public static double getAverageONPrice() throws IOException {
+    public double getAverageONPrice() throws IOException {
         Document document = Jsoup.connect("http://nafta.wnp.pl/ceny_paliw/").get();
         Element table = document.select("table").first();
         Elements tableRows = table.select("tr");
@@ -30,7 +30,7 @@ public class FuelPricesService {
     }
 
 
-    public static double getAveragePB95Price() throws IOException {
+    public double getAveragePB95Price() throws IOException {
         Document document = Jsoup.connect("http://nafta.wnp.pl/ceny_paliw/").get();
         Element table = document.select("table").first();
         Elements tableRows = table.select("tr");
@@ -50,7 +50,7 @@ public class FuelPricesService {
         return priceSum / (double)(tableRows.size() - 1);
     }
 
-    public static double getAveragePB98Price() throws IOException {
+    public double getAveragePB98Price() throws IOException {
         Document document = Jsoup.connect("http://nafta.wnp.pl/ceny_paliw/").get();
         Element table = document.select("table").first();
         Elements tableRows = table.select("tr");
@@ -73,7 +73,7 @@ public class FuelPricesService {
 
 
 
-    public static double getAverageLPGPrice() throws IOException {
+    public double getAverageLPGPrice() throws IOException {
         Document document = Jsoup.connect("http://nafta.wnp.pl/ceny_paliw/").get();
         Element table = document.select("table").first();
         Elements tableRows = table.select("tr");

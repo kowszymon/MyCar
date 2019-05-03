@@ -35,9 +35,9 @@
             </div>
             <div class="col-sm-12 col-md-3 text-center">
                 <div class="card mb-4 box-shadow">
-                    <a href="#"><i class="fas fa-road fa-10x"></i></a>
+                    <a href="/costOfATrip"><i class="fas fa-road fa-10x"></i></a>
                     <div class="card-body">
-                        <a href="#"><h2>Sprawdź koszt przejazdu</h2></a>
+                        <a href="/costOfATrip"><h2>Sprawdź koszt przejazdu</h2></a>
                     </div>
                 </div>
             </div>
