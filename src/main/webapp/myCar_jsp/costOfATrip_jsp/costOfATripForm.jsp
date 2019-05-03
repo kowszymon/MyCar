@@ -21,41 +21,51 @@
 <jsp:include page="/myCar_jsp/nav.jsp"/>
 <div class="container-fluid">
     <h2>Policz koszt przejazdu</h2>
-    <c:if test="${not empty errorMsg}">
-        <div class="alert alert-danger" role="alert">
-                ${errorMsg}
-        </div>
-    </c:if>
 
-        <form action="/costOfATrip/result" method ="get" class="was-validated">
-            <div class="form-group">
-                <label>Samochód</label>
-                <select name = "carId">
-                    <c:forEach items="${carsModel}" var="car">
-                        <option value="${car.id}">${car.name}</option>
-                    </c:forEach>
-                </select>
+    <c:choose>
+        <c:when test="${not empty errorMsg}">
+            <div class="alert alert-danger" role="alert">
+                    ${errorMsg}
+                <a href="/car/add">Dodaj samochód</a>
             </div>
-            <div class="form-group">
-                <label for="passengersQty">Ilość osób</label>
-                <input type="text" class="form-control" id="passengersQty" placeholder="Wpisz ilość osób podróżujących" name="passengersQty" value="${passengersQty}" required>
-                <div class="valid-feedback">OK</div>
-                <div class="invalid-feedback">Pole obowiązkowe</div>
-            </div>
+            <h4><a href="/home"><-- powrót do menu</a></h4>
+        </c:when>
+        <c:otherwise>
+            <form action="/costOfATrip/result" method="get" class="was-validated">
+                <div class="form-group">
+                    <label>Samochód</label>
+                    <select name="carId">
+                        <c:forEach items="${carsModel}" var="car">
+                            <option value="${car.id}">${car.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="passengersQty">Ilość osób</label>
+                    <input type="text" class="form-control" id="passengersQty"
+                           placeholder="Wpisz ilość osób podróżujących"
+                           name="passengersQty" value="${passengersQty}" required>
+                    <div class="valid-feedback">OK</div>
+                    <div class="invalid-feedback">Pole obowiązkowe</div>
+                </div>
 
 
-            <div class="form-group">
-                <label for="tripLength">Długość trasy</label>
-                <input type="number" min=0  name="tripLength" class="form-control"
-                       placeholder="Podaj długość trasy w kilometrach" id="tripLength"
-                       value = "${tripLength}" required>
-                <div class="valid-feedback">OK</div>
-                <div class="invalid-feedback">Pole obowiązkowe</div>
-            </div>
+                <div class="form-group">
+                    <label for="tripLength">Długość trasy</label>
+                    <input type="number" min=0 name="tripLength" class="form-control"
+                           placeholder="Podaj długość trasy w kilometrach" id="tripLength"
+                           value="${tripLength}" required>
+                    <div class="valid-feedback">OK</div>
+                    <div class="invalid-feedback">Pole obowiązkowe</div>
+                </div>
 
 
-            <button type="submit" class="btn btn-primary">Potwierdź</button>
-        </form>
+                <button type="submit" class="btn btn-primary">Sprawdź koszt przejazdu!</button>
+            </form>
+        </c:otherwise>
+    </c:choose>
+
+
 </div>
 </body>
 </html>

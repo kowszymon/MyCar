@@ -49,10 +49,9 @@ public class CostOfATripResultController extends HttpServlet {
 
 
         if(carDto.getFuel() == null || carDto.getFuelConsumptionPer100km() == 0.0){
-            req.setAttribute("errorMsg", "Samochodowi " + carDto.getName() + " nie ma przypisanego rodzaju" +
+            req.setAttribute("carIdToEdit", carIdLong);
+            req.setAttribute("errorMsg", "Samochodowi " + carDto.getName() + " nie przypisano rodzaju" +
                     " paliwa i/lub spalania.");
-            req.setAttribute("carIdToEdit", carId);
-            resp.sendRedirect("/car");
         } else {
 
             String fuel = carDto.getFuel();
@@ -87,6 +86,10 @@ public class CostOfATripResultController extends HttpServlet {
             req.setAttribute("costOfATripPerPerson",costOfATripPerPersonString);
             req.setAttribute("costOfATripFull",costOfATripFullString);
 
+            if(passengersQtyInteger == 1) {
+                req.setAttribute("singlePassenger", true);
+            }
+
             double PB95Price = Math.round(fuelPricesService.getAveragePB95Price() * 100.0) / 100.0;
             double PB98Price = Math.round(fuelPricesService.getAveragePB98Price() * 100.0) / 100.0;
             double LPGPrice = Math.round(fuelPricesService.getAverageLPGPrice() * 100.0) / 100.0;
@@ -102,10 +105,10 @@ public class CostOfATripResultController extends HttpServlet {
             req.setAttribute("LPGPrice", LPGPriceString);
             req.setAttribute("ONPrice", ONPriceString);
 
-
-
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/costOfATrip_jsp/costOfATripResult.jsp");
-            requestDispatcher.forward(req, resp);
         }
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/costOfATrip_jsp/costOfATripResult.jsp");
+        requestDispatcher.forward(req, resp);
+
     }
 }

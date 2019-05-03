@@ -20,13 +20,29 @@
 <body>
 <jsp:include page="/myCar_jsp/nav.jsp"/>
 <div>
+    <c:choose>
+        <c:when test="${not empty errorMsg}">
+        <div class="alert alert-danger" role="alert">
+                ${errorMsg}
+            <a href="/car?id=${carIdToEdit}">Edytuj samochód</a>
+        </div>
+        <h4><a href="/costOfATrip"><-- wybierz inny samochód</a></h4>
+        <h4><a href="/home"><-- powrót do menu</a></h4>
+        </c:when>
+        <c:otherwise>
     <h1>Obliczyliśmy koszt Twojego przejazdu.</h1>
     <br>
     <br>
     <br>
     <h4>Na tej trasie spalisz ${fuelConsumed} l ${fuel}.</h4>
     <br>
-    <h4>Twój przejazd będzie kosztował <b>${costOfATripFull} zł</b>, a więc <b>${costOfATripPerPerson} zł</b> na osobę.</h4>
+    <h4>Twój przejazd będzie kosztował <b>${costOfATripFull}
+        <c:choose>
+            <c:when test="${not empty singlePassenger}"> zł.</c:when>
+            <c:otherwise>zł, a więc ${costOfATripPerPerson} zł na osobę.</c:otherwise>
+        </c:choose>
+    </b>
+    </h4>
     <br>
     <h4>Miłej podróży!</h4>
     <br>
@@ -57,6 +73,8 @@
         </tbody>
     </table>
     <p><i> źródło: https://nafta.wnp.pl/ceny_paliw/</i></p>
+    </c:otherwise>
+    </c:choose>
 </div>
 
 

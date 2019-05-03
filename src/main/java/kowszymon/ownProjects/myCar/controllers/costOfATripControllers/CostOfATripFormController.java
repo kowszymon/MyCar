@@ -24,13 +24,14 @@ public class CostOfATripFormController extends HttpServlet {
         List<CarDto> cars = carService.findCars();
         req.setAttribute("carsModel", cars);
 
-        if(cars.isEmpty()){
-            req.setAttribute("errorMsg", "Nie masz dodanego żadnego samochodu. Dodaj, aby sprawdzić koszt przejazdu." +
-                    "Pamiętaj, aby ustawić mu spalanie i paliwo");
-            resp.sendRedirect("/car/add");
+        if(cars.isEmpty()) {
+            req.setAttribute("errorMsg", "Nie dodałeś do swojej bazy żadnego samochodu. " +
+                    "Zrób to, aby móc sprawdzić koszt przejazdu. Pamiętaj, aby ustawić mu spalanie i paliwo.");
         }
-        RequestDispatcher requestDispatcher =
-                req.getRequestDispatcher("/myCar_jsp/costOfATrip_jsp/costOfATripForm.jsp");
-        requestDispatcher.forward(req, resp);
+            RequestDispatcher requestDispatcher =
+                    req.getRequestDispatcher("/myCar_jsp/costOfATrip_jsp/costOfATripForm.jsp");
+            requestDispatcher.forward(req, resp);
+
+
     }
 }
