@@ -50,6 +50,6 @@ public class BudgetServiceImpl implements BudgetService {
 
     @Override
     public BigDecimal budgetCount() {
-        return null;
+        return incomesSum().subtract(expensesSum());
     }
 }

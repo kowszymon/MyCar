@@ -87,6 +87,23 @@ public class BudgetServiceImplTest {
 
     @Test
     public void budgetCount() {
+        incomeService.save(incomeDto);
+        incomeService.save(incomeDto2);
+        incomeService.save(incomeDto3);
+        incomeService.save(incomeDto4);
+        categoryDto.setName("testCategory");
+        categoryService.save(categoryDto);
+
+        carDto.setName("testCar");
+        carService.save(carDto);
+
+        expenseService.save(expenseDto);
+        expenseService.save(expenseDto2);
+        expenseService.save(expenseDto3);
+        expenseService.save(expenseDto4);
+        Assert.assertEquals(BigDecimal.valueOf(62000, 2), budgetService.budgetCount());
+
+
     }
 
 

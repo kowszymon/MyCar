@@ -73,11 +73,12 @@ public class CostOfATripResultController extends HttpServlet {
 
             try {
                 costOfATripPerPerson = countCostOfATripService.countCostOfATrip(tripLengthInteger, carDto, passengersQtyInteger);
+                costOfATripPerPerson = Math.round(costOfATripPerPerson* 100.0) / 100.0;
             } catch (IOException e) {
                 e.getMessage();
             }
 
-            double costOfATripFull = costOfATripPerPerson * passengersQtyInteger;
+            double costOfATripFull = Math.round((costOfATripPerPerson * passengersQtyInteger) * 100.0) / 100.0;
 
             String costOfATripPerPersonString = String.valueOf(costOfATripPerPerson).replace('.', ',');
 
