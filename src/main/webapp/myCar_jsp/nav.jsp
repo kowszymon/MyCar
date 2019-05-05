@@ -33,21 +33,19 @@
             </li>
         </ul>
     </div>
-    <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto" href="#">Navbar 2</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <% BudgetService budgetService = new BudgetServiceImpl();
                     String budget = budgetService.budgetCount().toString().replace('.', ',');%>
-                <a class="text" href="#">Budżet: <%=budget%> zł</a>
+                <div class="text-white" href="#">Budżet: <%=budget%> zł</div>
             </li>
-            <li class="nav-item">
-                <a class="fas fa-plus" href="/income/add"></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/income/add" id="navbardrop" data-toggle="dropdown"></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/income/add">Zwiększ budżet</a>
+                    <a class="dropdown-item" href="/income/list">Zobacz listę przychodów</a>
+                </div>
             </li>
 
         </ul>

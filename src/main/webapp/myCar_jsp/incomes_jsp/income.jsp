@@ -31,7 +31,7 @@
 
 </head>
 <body>
-
+<jsp:include page="/myCar_jsp/nav.jsp"/>
 <div class="container-fluid">
     <h2>Edytuj przychód</h2>
     <c:if test="${not empty errorMsg}">
