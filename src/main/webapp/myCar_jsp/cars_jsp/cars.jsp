@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>MyCar Samochody</title>
+    <title>Samochody</title>
     <link rel="icon" href="https://img.icons8.com/ios/50/000000/people-in-car-filled.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
