@@ -33,24 +33,24 @@
     <form action="/car/save" method ="post" class="was-validated">
         <div class="form-group">
             <label for="name">Nazwa:</label>
-            <input type="text" class="form-control" id="name" placeholder="Wpisz nazwę samochodu" name="name" value="${car.name}" required>
+            <input type="text" class="form-control w-auto" id="name" placeholder="Wpisz nazwę samochodu" name="name" value="${car.name}" required>
             <div class="valid-feedback">OK</div>
             <div class="invalid-feedback">Pole obowiązkowe</div>
         </div>
         <div class="form-group">
             <label for="make">Marka</label>
-            <input type="text" class="form-control" id="make" placeholder="Wpisz markę" name="make" value="${car.make}">
+            <input type="text" class="form-control w-auto" id="make" placeholder="Wpisz markę" name="make" value="${car.make}">
         </div>
         <div class="form-group">
             <label for="model">Model:</label>
-            <input type="text" name="model" class="form-control" placeholder="Wpisz model" id="model" value="${car.model}">
+            <input type="text" name="model" class="form-control w-auto" placeholder="Wpisz model" id="model" value="${car.model}">
         </div>
 
 
         <div class="form-group">
-            <label for="fuelConsumptionPer100km">Średnie spalanie</label>
-            <input type="number" step="0.1" min=0  name="fuelConsumptionPer100km" class="form-control"
-                   placeholder="Podaj średnie spalanie w litrach na 100 km" id="fuelConsumptionPer100km"
+            <label for="fuelConsumptionPer100km">Średnie spalanie w litrach na 100km</label>
+            <input type="number" step="0.1" min=0  name="fuelConsumptionPer100km" class="form-control w-auto"
+                   id="fuelConsumptionPer100km"
                    value = "${car.fuelConsumptionPer100km}">
         </div>
 
@@ -60,7 +60,7 @@
                 <select name = "fuel">
                     <option></option>
                     <c:forEach items="${fuelTypes}" var="fuel">
-                        <option value="${fuel}" ${fuel.name.equals(selectedFuel) ? 'selected = "selected"' : ''}>${fuel.name}</option>
+                        <option class="form-control w-auto" value="${fuel}" ${fuel.name.equals(selectedFuel) ? 'selected = "selected"' : ''}>${fuel.name}</option>
                     </c:forEach>
                 </select>
         </div>
@@ -69,7 +69,7 @@
 
         <div class="form-group">
             <label for="course">Przebieg</label>
-            <input type="number" min=0 class="form-control" id="course" placeholder="Podaj przebieg" name="course" value ="${car.course}">
+            <input type="number" min=0 class="form-control w-auto" id="course" placeholder="Podaj przebieg w km" name="course" value ="${car.course}">
         </div>
         <input type="hidden" name="id" value="${car.id}">
 

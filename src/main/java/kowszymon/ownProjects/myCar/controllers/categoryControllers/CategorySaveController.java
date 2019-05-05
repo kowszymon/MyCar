@@ -38,7 +38,7 @@ public class CategorySaveController extends HttpServlet {
         } else {
             CategoryDto formCategoryDto = new CategoryDto(carId, name);
             categoryService.save(formCategoryDto);
-            resp.sendRedirect("/categories/list");
+            resp.sendRedirect("/category/list");
         }
 
 

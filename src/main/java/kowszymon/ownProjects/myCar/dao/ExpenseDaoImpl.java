@@ -14,8 +14,8 @@ import java.util.Optional;
 
 public class ExpenseDaoImpl implements ExpenseDao {
 
-    SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-    Logger logger = Logger.getLogger(ExpenseDaoImpl.class);
+    private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static Logger logger = Logger.getLogger(ExpenseDaoImpl.class);
 
 
     @Override

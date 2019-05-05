@@ -22,10 +22,11 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     ExpenseDao expenseDao = new ExpenseDaoImpl();
 
-    BudgetService budgetService = new BudgetServiceImpl();
+    BudgetService budgetService;
 
     @Override
     public List<ExpenseDto> findExpenses() {
+
         List<Expense> expenses = expenseDao.findAll();
 
         return expenses.stream().map(expenseDtoConverter).collect(Collectors.toList());
@@ -33,6 +34,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public ExpenseDto findExpenseById(Long expenseId) throws ExpenseNotFoundException {
+
         Optional<Expense> expenseOptional = expenseDao.findById(expenseId);
         if(expenseOptional.isPresent()) {
             Expense expense = expenseOptional.get();
@@ -46,6 +48,10 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public void save(ExpenseDto expenseDto) throws NotEnoughBudgetException {
+        if(budgetService == null){
+            budgetService = new BudgetServiceImpl();
+        }
+
         BigDecimal budget = budgetService.budgetCount();
 
         if (budget.compareTo(expenseDto.getCost()) >= 0) {

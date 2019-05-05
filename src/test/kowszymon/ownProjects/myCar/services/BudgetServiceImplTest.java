@@ -5,6 +5,7 @@ import kowszymon.ownProjects.myCar.dto.CategoryDto;
 import kowszymon.ownProjects.myCar.dto.ExpenseDto;
 import kowszymon.ownProjects.myCar.dto.IncomeDto;
 import kowszymon.ownProjects.myCar.entities.Expense;
+import kowszymon.ownProjects.myCar.exceptions.NotEnoughBudgetException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -78,10 +79,28 @@ public class BudgetServiceImplTest {
         carDto.setName("testCar");
         carService.save(carDto);
 
-        expenseService.save(expenseDto);
-        expenseService.save(expenseDto2);
-        expenseService.save(expenseDto3);
-        expenseService.save(expenseDto4);
+        try {
+            expenseService.save(expenseDto);
+        }catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
+        try {
+            expenseService.save(expenseDto2);
+        }catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
+        try {
+            expenseService.save(expenseDto3);
+        }
+        catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
+        try {
+            expenseService.save(expenseDto4);
+        }catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
+
         Assert.assertEquals(BigDecimal.valueOf(50000, 2), budgetService.expensesSum());
     }
 
@@ -97,10 +116,27 @@ public class BudgetServiceImplTest {
         carDto.setName("testCar");
         carService.save(carDto);
 
-        expenseService.save(expenseDto);
-        expenseService.save(expenseDto2);
-        expenseService.save(expenseDto3);
-        expenseService.save(expenseDto4);
+        try {
+            expenseService.save(expenseDto);
+        }catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
+        try {
+            expenseService.save(expenseDto2);
+        }catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
+        try {
+            expenseService.save(expenseDto3);
+        }
+        catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
+        try {
+            expenseService.save(expenseDto4);
+        }catch (NotEnoughBudgetException e) {
+            e.getMessage();
+        }
         Assert.assertEquals(BigDecimal.valueOf(62000, 2), budgetService.budgetCount());
 
 

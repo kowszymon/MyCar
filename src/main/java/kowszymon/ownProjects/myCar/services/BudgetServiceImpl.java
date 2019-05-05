@@ -9,9 +9,9 @@ import java.util.List;
 
 public class BudgetServiceImpl implements BudgetService {
 
-    IncomeService incomeService = new IncomeServiceImpl();
+    private IncomeService incomeService = new IncomeServiceImpl();
 
-    ExpenseService expenseService = new ExpenseServiceImpl();
+    private ExpenseService expenseService;
 
     @Override
     public BigDecimal incomesSum() {
@@ -32,6 +32,9 @@ public class BudgetServiceImpl implements BudgetService {
 
     @Override
     public BigDecimal expensesSum() {
+        if(expenseService == null){
+            expenseService = new ExpenseServiceImpl();
+        }
 
         List<ExpenseDto> expenses = expenseService.findExpenses();
 

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "/categoryListController", value = "/category/list")
+@WebServlet(name = "categoryListController", value = "/category/list")
 public class CategoryListController extends HttpServlet {
 
     private CategoryService categoryService = new CategoryServiceImpl();
