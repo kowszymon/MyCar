@@ -6,6 +6,7 @@ import kowszymon.ownProjects.myCar.dto.ExpenseDto;
 import kowszymon.ownProjects.myCar.entities.Expense;
 import kowszymon.ownProjects.myCar.exceptions.CarNotFoundException;
 import kowszymon.ownProjects.myCar.exceptions.CategoryNotFoundException;
+import kowszymon.ownProjects.myCar.exceptions.NotEnoughBudgetException;
 import kowszymon.ownProjects.myCar.services.*;
 
 import javax.servlet.ServletException;
@@ -41,7 +42,7 @@ public class ExpenseSaveController extends HttpServlet {
         try {
             expenseIdLong = Long.valueOf(expenseId);
         } catch (NumberFormatException e) {
-            req.setAttribute("errorMsgExpenseIdFormat", "Wrong format of id number");
+            req.setAttribute("errorMsg", "Wrong format of id number");
         }
 
 
@@ -50,7 +51,7 @@ public class ExpenseSaveController extends HttpServlet {
         try {
             expenseDate = LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
         } catch (DateTimeException e){
-            req.setAttribute("errorMsgDateException", "Problem with parsing date");
+            req.setAttribute("errorMsg", "Problem with parsing date");
         }
 
 
@@ -59,7 +60,7 @@ public class ExpenseSaveController extends HttpServlet {
         try {
             expenseCostBigDecimal = BigDecimal.valueOf(Double.valueOf(cost));
         } catch (NumberFormatException e) {
-            req.setAttribute("errorMsgCostException", "Wrong format of expense cost");
+            req.setAttribute("errorMsg", "Wrong format of expense cost");
         }
 
         Long categoryIdLong = Long.valueOf(categoryId);
@@ -68,7 +69,7 @@ public class ExpenseSaveController extends HttpServlet {
         try {
             categoryDto = categoryService.findCategoryById(categoryIdLong);
         } catch (CategoryNotFoundException e) {
-            req.setAttribute("errorMsgCategoryNotFound", "Category with id " + categoryId + " was not found");
+            req.setAttribute("errorMsg", "Category with id " + categoryId + " was not found");
         }
 
 
@@ -78,15 +79,19 @@ public class ExpenseSaveController extends HttpServlet {
         try {
             carDto = carService.findCarById(carIdLong);
         } catch (CarNotFoundException e) {
-            req.setAttribute("errorMsgCarNotFound", "Car with id " + carId + " was not found");
+            req.setAttribute("errorMsg", "Car with id " + carId + " was not found");
         }
 
         if(date == null || "".equals(date) || name == null || "".equals(name) || cost == null || "".equals(cost)) {
-            req.setAttribute("errorMsgEmptyFields", "Date, name and cost cannot be empty!");
+            req.setAttribute("errorMsg", "Date, name and cost cannot be empty!");
         } else {
             ExpenseDto formExpenseDto = new ExpenseDto(expenseIdLong, name, categoryDto,
                     expenseDate, expenseCostBigDecimal, carDto);
-            expenseService.save(formExpenseDto);
+            try {
+                expenseService.save(formExpenseDto);
+            } catch (NotEnoughBudgetException e){
+                req.setAttribute("errorMsg", "Nie posiadasz wystarczającego budżetu na ten wydatek!");
+            }
         }
 
 

@@ -7,7 +7,9 @@ import kowszymon.ownProjects.myCar.dao.ExpenseDaoImpl;
 import kowszymon.ownProjects.myCar.dto.ExpenseDto;
 import kowszymon.ownProjects.myCar.entities.Expense;
 import kowszymon.ownProjects.myCar.exceptions.ExpenseNotFoundException;
+import kowszymon.ownProjects.myCar.exceptions.NotEnoughBudgetException;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,6 +21,8 @@ public class ExpenseServiceImpl implements ExpenseService {
     ExpenseConverter expenseConverter = new ExpenseConverter();
 
     ExpenseDao expenseDao = new ExpenseDaoImpl();
+
+    BudgetService budgetService = new BudgetServiceImpl();
 
     @Override
     public List<ExpenseDto> findExpenses() {
@@ -35,15 +39,21 @@ public class ExpenseServiceImpl implements ExpenseService {
             ExpenseDto expenseDto = expenseDtoConverter.apply(expense);
             return expenseDto;
         } else {
-            throw new ExpenseNotFoundException("Expense with id " + expenseId + " could not be found");
+            throw new ExpenseNotFoundException("Wydatek o id " + expenseId + " nie został znaleziony");
         }
 
     }
 
     @Override
-    public void save(ExpenseDto expenseDto) {
-        Expense expense = expenseConverter.apply(expenseDto);
-        expenseDao.save(expense);
+    public void save(ExpenseDto expenseDto) throws NotEnoughBudgetException {
+        BigDecimal budget = budgetService.budgetCount();
+
+        if (budget.compareTo(expenseDto.getCost()) >= 0) {
+            Expense expense = expenseConverter.apply(expenseDto);
+            expenseDao.save(expense);
+        } else {
+            throw new NotEnoughBudgetException("Nie posiadasz wystarczającego budżetu na ten wydatek!");
+        }
     }
 
     @Override
