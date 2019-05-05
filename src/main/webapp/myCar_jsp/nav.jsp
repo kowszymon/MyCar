@@ -47,7 +47,7 @@
                 <a class="text" href="#">Budżet: <%=budget%> zł</a>
             </li>
             <li class="nav-item">
-                <a class="fas fa-plus" href="#"></a>
+                <a class="fas fa-plus" href="/income/add"></a>
             </li>
 
         </ul>

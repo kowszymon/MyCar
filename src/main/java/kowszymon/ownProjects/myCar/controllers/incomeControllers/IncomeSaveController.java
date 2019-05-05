@@ -42,7 +42,7 @@ public class IncomeSaveController extends HttpServlet {
         try {
             incomeDate = LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
         } catch (DateTimeException e){
-
+            e.getMessage();
         }
 
 
@@ -55,7 +55,8 @@ public class IncomeSaveController extends HttpServlet {
         }
 
         if(date == null || "".equals(date) || amount == null || "".equals(amount)) {
-            req.setAttribute("errorMsg", "date and amount should not be empty");
+            req.setAttribute("errorMsg", "Pola data i kwota nie mogą być puste.");
+            req.setAttribute("income", new IncomeDto());
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/incomes_jsp/income.jsp");
             requestDispatcher.forward(req, resp);
         } else {

@@ -27,7 +27,7 @@ public class IncomeEditController extends HttpServlet {
             IncomeDto incomeDto = incomeService.findIncomeById(incomeId);
             req.setAttribute("income", incomeDto);
         } catch (IncomeNotFoundException e) {
-            req.setAttribute("errorMsg", "Income with id=" + id + " was not found");
+            req.setAttribute("errorMsg", "Przychód o id=" + id + " nie został znaleziony");
         }
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/incomes_jsp/income.jsp");
