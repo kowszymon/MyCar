@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="icon" href="https://img.icons8.com/ios/50/000000/people-in-car-filled.png">
 </head>
 <body>
 

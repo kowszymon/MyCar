@@ -38,7 +38,7 @@
             <li class="nav-item">
                 <% BudgetService budgetService = new BudgetServiceImpl();
                     String budget = budgetService.budgetCount().toString().replace('.', ',');%>
-                <div class="text-white" href="#">Budżet: <%=budget%> zł</div>
+                <div class="text-white">Budżet: <%=budget%> zł</div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/income/add" id="navbardrop" data-toggle="dropdown"></a>
