@@ -41,13 +41,12 @@
                 <div class="text-white">Budżet: <%=budget%> zł</div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/income/add" id="navbardrop" data-toggle="dropdown"></a>
+                <a class="nav-link dropdown-toggle" href ="#" id="navbardrop" data-toggle="dropdown"></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="/income/add">Zwiększ budżet</a>
                     <a class="dropdown-item" href="/income/list">Zobacz listę przychodów</a>
                 </div>
             </li>
-
         </ul>
     </div>
 </nav>
