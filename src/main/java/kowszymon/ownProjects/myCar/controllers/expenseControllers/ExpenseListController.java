@@ -25,7 +25,7 @@ public class ExpenseListController extends HttpServlet {
 
         req.setAttribute("expensesModel", expenses);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/expenses/expenses.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/expenses_jsp/expenses.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

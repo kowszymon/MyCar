@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Zwiększ budżet</title>
+    <title>Lista przychodów</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -36,8 +36,8 @@
             <tr>
                 <td>${income.date}</td>
                 <td>${income.amount}</td>
-                <td><a href="/income?id=${income.id}">Edytuj</a></td>
-                <td><a href="/income/delete?id=${income.id}">Usuń przychód</a></td>
+                <td><a class="text-white" href="/income?id=${income.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
+                <td><a class="text-white" href="/income/delete?id=${income.id}"><span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
             </tr>
         </c:forEach>
         </tbody>

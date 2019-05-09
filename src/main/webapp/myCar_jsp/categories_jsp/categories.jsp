@@ -36,8 +36,8 @@
         <c:forEach items="${categoriesModel}" var="category">
             <tr>
                 <td>${category.name}</td>
-                 <td><a href="/category?id=${category.id}">Edytuj</a></td>
-                <td><a href="/category/delete?id=${category.id}">Usuń</a></td>
+                 <td><a class="text-white" href="/category?id=${category.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
+                <td><a class="text-white" href="/category/delete?id=${category.id}"><span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
             </tr>
         </c:forEach>
         </tbody>
