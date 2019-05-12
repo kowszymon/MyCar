@@ -17,7 +17,7 @@ public class Expense {
     private String name;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @PrimaryKeyJoinColumn
     Category category;
 
@@ -28,7 +28,7 @@ public class Expense {
     private BigDecimal cost;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @PrimaryKeyJoinColumn
     private Car car;
 
