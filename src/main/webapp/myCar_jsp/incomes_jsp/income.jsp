@@ -42,14 +42,7 @@
 
     <c:if test="${not empty income}">
         <form action="/income/save" method ="post" class="was-validated">
-            <div class="form-group">
-                <label class="control-label"for="date">Data:</label>
-                <input data-provide="datepicker" name="date" class="datepicker form-control w-auto" data-date-format="yyyy-mm-dd"
-                       id="date" placeholder="Wybierz datę"
-                       type="text" value="${income.date}" autocomplete = "off" required>
-                <div class="valid-feedback">OK</div>
-                <div class="invalid-feedback">Pole obowiązkowe</div>
-            </div>
+            <input type="hidden" name="date" value="${date}">
 
             <div class="form-group">
                 <label for="amount">Kwota</label>
