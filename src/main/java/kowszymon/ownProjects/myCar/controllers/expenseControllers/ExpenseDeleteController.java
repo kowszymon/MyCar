@@ -24,6 +24,7 @@ public class ExpenseDeleteController extends HttpServlet {
 
         String id = req.getParameter("id");
 
+
         expenseService.delete(Long.valueOf(id));
 
         resp.sendRedirect("/expense/list");
