@@ -41,11 +41,11 @@ public class ExpenseAddController extends HttpServlet {
                     "Zrób to, aby móc dodać wydatek.");
 
         } else if (cars.isEmpty()) {
-            req.setAttribute("errorMsgNoCar", "Nie dodałeś do swojej bazy żadnego samochodu" +
+            req.setAttribute("errorMsgNoCar", "Nie dodałeś do swojej bazy żadnego samochodu. " +
                     "Zrób to, aby móc dodać wydatek.");
 
         } else if (categories.isEmpty()) {
-            req.setAttribute("errorMsgNoCategory", "Nie dodałeś do swojej bazy żadnej kategorii" +
+            req.setAttribute("errorMsgNoCategory", "Nie dodałeś do swojej bazy żadnej kategorii. " +
                     "Zrób to, aby móc dodać wydatek.");
 
         }

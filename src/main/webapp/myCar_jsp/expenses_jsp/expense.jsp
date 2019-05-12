@@ -68,7 +68,7 @@
     <c:when test="${not empty errorMsgNoCategory}">
         <div class="alert alert-danger" role="alert">
                 ${errorMsgNoCategory}
-            <a href="/category/add/add">Dodaj kategorię</a>
+            <a href="/category/add">Dodaj kategorię</a>
         </div>
         <h4><a href="/home"><-- powrót do menu</a></h4>
     </c:when>

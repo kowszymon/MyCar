@@ -31,7 +31,7 @@ public class ExpenseSaveController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String expenseId = req.getParameter("ExpenseId");
+        String id = req.getParameter("id");
         String name = req.getParameter("name");
         String date = req.getParameter("date");
         String cost = req.getParameter("cost");
@@ -42,9 +42,9 @@ public class ExpenseSaveController extends HttpServlet {
         Long expenseIdLong = null;
 
         try {
-            expenseIdLong = Long.valueOf(expenseId);
+            expenseIdLong = Long.valueOf(id);
         } catch (NumberFormatException e) {
-            req.setAttribute("errorMsg", "Błędny format id");
+            e.getMessage();
         }
 
 
@@ -53,7 +53,7 @@ public class ExpenseSaveController extends HttpServlet {
         try {
             expenseDate = LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
         } catch (DateTimeException e){
-            req.setAttribute("errorMsg", "Problem z parsowaniem daty.");
+            e.getMessage();
         }
 
 
@@ -62,7 +62,7 @@ public class ExpenseSaveController extends HttpServlet {
         try {
             expenseCostBigDecimal = BigDecimal.valueOf(Double.valueOf(cost));
         } catch (NumberFormatException e) {
-            req.setAttribute("errorMsg", "Błędny format kosztu wydatku!");
+            e.getMessage();
         }
 
         Long categoryIdLong = Long.valueOf(categoryId);
