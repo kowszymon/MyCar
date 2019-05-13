@@ -37,7 +37,9 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <% BudgetService budgetService = new BudgetServiceImpl();
-                    String budget = budgetService.budgetCount().toString().replace('.', ',');%>
+                    String budget = budgetService.budgetCount()
+                            .toString()
+                            .replace('.', ',');%>
                 <div class="text-white">Budżet: <%=budget%> zł</div>
             </li>
             <li class="nav-item dropdown">

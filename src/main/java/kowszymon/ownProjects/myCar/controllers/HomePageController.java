@@ -15,14 +15,10 @@ import java.math.BigDecimal;
 @WebServlet(name = "homePageController", value = "/home")
 public class HomePageController extends HttpServlet {
 
-    private BudgetService budgetService = new BudgetServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        BigDecimal budgetCount = budgetService.budgetCount();
-//
-//        req.setAttribute("budgetCount", budgetCount);
 
         RequestDispatcher requestDispatcher =req.getRequestDispatcher("/myCar_jsp/home_page.jsp");
         requestDispatcher.forward(req,resp);

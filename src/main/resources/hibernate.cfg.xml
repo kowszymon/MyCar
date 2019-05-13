@@ -3,7 +3,7 @@
     <session-factory>
         <!-- Database Connection Settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost/myCar_db?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false</property>
+        <property name="connection.url">jdbc:mysql://localhost/myCar_db?createDatabaseIfNotExist=true&amp;zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false</property>
         <property name="connection.username">root</property>
         <property name="connection.password">baba</property>
         <!-- Connection Pool Size (built-in) -->
