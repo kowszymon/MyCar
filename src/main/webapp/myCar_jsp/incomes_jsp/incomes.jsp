@@ -26,7 +26,7 @@
 
 <div class="container">
     <h2>Lista przychodów</h2>
-    <table class="table table-dark table-striped">
+    <table class="table table-dark w-auto table-striped">
         <thead>
         <tr>
             <th>Data</th>

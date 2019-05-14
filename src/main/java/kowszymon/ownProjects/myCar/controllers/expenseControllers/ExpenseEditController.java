@@ -37,7 +37,7 @@ public class ExpenseEditController extends HttpServlet {
             ExpenseDto expenseDto = expenseService.findExpenseById(expenseId);
             req.setAttribute("expense", expenseDto);
         } catch (ExpenseNotFoundException e) {
-            req.setAttribute("errorMsg", "Expense with id=" + id + " was not found");
+            req.setAttribute("errorMsg", "Wydatek o id=" + id + " nie został znaleziony");
         }
 
         List<CarDto> cars = carService.findCars();
