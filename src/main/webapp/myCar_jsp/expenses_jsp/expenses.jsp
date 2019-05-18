@@ -44,7 +44,9 @@
                 <td>${expense.name}</td>
                 <td>${expense.cost}</td>
                 <td><a class="text-white" href="/expense?id=${expense.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
-                <td><a class="text-white" href="/expense/delete?id=${expense.id}"><span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
+                <td><a class="text-white" href="/expense/delete?id=${expense.id}"
+                       onclick="return confirm('Czy na pewno chcesz usunąć ten wydatek?');">
+                    <span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
 
             </tr>
         </c:forEach>

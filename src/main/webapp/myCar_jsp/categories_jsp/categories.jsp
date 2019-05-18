@@ -37,7 +37,9 @@
             <tr>
                 <td>${category.name}</td>
                  <td><a class="text-white" href="/category?id=${category.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
-                <td><a class="text-white" href="/category/delete?id=${category.id}"><span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
+                <td><a class="text-white" href="/category/delete?id=${category.id}"
+                       onclick="return confirm('Czy na pewno chcesz usunąć tę kategorię?');">
+                    <span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
             </tr>
         </c:forEach>
         </tbody>

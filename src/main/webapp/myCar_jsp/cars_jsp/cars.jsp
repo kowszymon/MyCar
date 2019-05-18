@@ -44,7 +44,9 @@
             <td>${car.fuelConsumptionPer100km}</td>
             <td>${car.course}</td>
             <td><a class="text-white" href="/car?id=${car.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
-            <td><a class="text-white" href="/car/delete?id=${car.id}"><span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
+            <td><a class="text-white" href="/car/delete?id=${car.id}"
+                   onclick="return confirm('Czy na pewno chcesz usunąć ten samochód?');">
+                <span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
 
         </tr>
         </c:forEach>

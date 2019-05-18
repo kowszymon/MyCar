@@ -39,7 +39,9 @@
                 <td>${income.date}</td>
                 <td>${income.amount}</td>
                 <td><a class="text-white" href="/income?id=${income.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
-                <td><a class="text-white" href="/income/delete?id=${income.id}"><span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
+                <td><a class="text-white" href="/income/delete?id=${income.id}"
+                       onclick="return confirm('Czy na pewno chcesz usunąć ten przychód?');">
+                    <span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
             </tr>
         </c:forEach>
         </tbody>
