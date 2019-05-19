@@ -46,7 +46,7 @@ public class CategoryServiceImpl implements CategoryService {
             CategoryDto categoryDto = categoryDtoConverter.apply(category);
             return categoryDto;
         } else {
-            throw new CategoryNotFoundException("Category with id = " + categoryId + " was not found");
+            throw new CategoryNotFoundException("Kategoria o id= " + categoryId + " nie została znaleziona");
         }
     }
 

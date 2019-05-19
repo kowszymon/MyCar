@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Dodaj kategorię</title>
+    <title>${AddOrEdit}</title>
     <link rel="icon" href="https://img.icons8.com/ios/50/000000/people-in-car-filled.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@
 
 
 <div class="container-fluid">
-    <h2>Edytuj kategorię</h2>
+    <h2>${AddOrEdit}</h2>
     <c:if test="${not empty errorMsg}">
         <div class="alert alert-danger" role="alert">
                 ${errorMsg}

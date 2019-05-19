@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Dodaj przychód</title>
+    <title>${AddOrEdit}</title>
     <link rel="icon" href="https://img.icons8.com/ios/50/000000/people-in-car-filled.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
 <body>
 <jsp:include page="/myCar_jsp/nav.jsp"/>
 <div class="container-fluid">
-    <h2>Edytuj przychód</h2>
+    <h2>${AddOrEdit}</h2>
     <c:if test="${not empty errorMsg}">
         <div class="alert alert-danger" role="alert">
                 ${errorMsg}

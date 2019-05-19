@@ -31,6 +31,8 @@ public class IncomeEditController extends HttpServlet {
             req.setAttribute("errorMsg", "Przychód o id=" + id + " nie został znaleziony");
         }
 
+        req.setAttribute("AddOrEdit", "Edytuj przychód");
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/incomes_jsp/income.jsp");
         requestDispatcher.forward(req, resp);
     }

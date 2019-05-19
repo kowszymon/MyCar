@@ -56,14 +56,6 @@
                 </div>
             </div>
 
-            <div class="col-sm-12 col-md-3 text-center">
-                <div class="card mb-4 box-shadow">
-                    <a href="#"><i class="fas fa-question fa-10x"></i></a>
-                    <div class="card-body">
-                        <a href="#"><h2>Coś tam</h2></a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

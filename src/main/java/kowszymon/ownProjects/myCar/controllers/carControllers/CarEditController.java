@@ -46,6 +46,9 @@ public class CarEditController extends HttpServlet {
         } catch (CarNotFoundException e) {
             req.setAttribute("errorMsg", "Samochód o id " + carId + " nie został znaleziony w bazie");
         }
+
+        req.setAttribute("AddOrEdit", "Edytuj samochód");
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/cars_jsp/car.jsp");
         requestDispatcher.forward(req, resp);
     }

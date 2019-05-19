@@ -1,5 +1,6 @@
 package kowszymon.ownProjects.myCar.controllers.categoryControllers;
 
+import kowszymon.ownProjects.myCar.dto.CategoryDto;
 import kowszymon.ownProjects.myCar.exceptions.CategoryNotFoundException;
 import kowszymon.ownProjects.myCar.services.CategoryService;
 import kowszymon.ownProjects.myCar.services.CategoryServiceImpl;
@@ -21,13 +22,16 @@ public class CategoryEditController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
 
-        Long carId = Long.valueOf(id);
+        Long categoryId = Long.valueOf(id);
 
         try {
-            categoryService.findCategoryById(carId);
+            CategoryDto categoryDto = categoryService.findCategoryById(categoryId);
+            req.setAttribute("category", categoryDto);
         } catch (CategoryNotFoundException e) {
             req.setAttribute("errorMsg", "Category with id " + id + " was not found");
         }
+
+        req.setAttribute("AddOrEdit", "Edytuj kategorię");
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/categories_jsp/category.jsp");
         requestDispatcher.forward(req, resp);

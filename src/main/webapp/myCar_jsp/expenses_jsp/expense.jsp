@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Dodaj wydatek</title>
+    <title>${AddOrEdit}</title>
     <link rel="icon" href="https://img.icons8.com/ios/50/000000/people-in-car-filled.png">
     <title>Dodaj samochód</title>
     <link rel="icon" href="https://img.icons8.com/ios/50/000000/people-in-car-filled.png">
@@ -34,7 +34,7 @@
 <jsp:include page="/myCar_jsp/nav.jsp"/>
 
 <div class="container-fluid">
-    <h2>Edytuj wydatek</h2>
+    <h2>${AddOrEdit}</h2>
 <c:choose>
     <c:when test="${not empty errorMsg}">
         <div class="alert alert-danger" role="alert">

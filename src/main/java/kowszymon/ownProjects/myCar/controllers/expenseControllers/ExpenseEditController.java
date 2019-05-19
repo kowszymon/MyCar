@@ -46,6 +46,9 @@ public class ExpenseEditController extends HttpServlet {
         List<CategoryDto> categories = categoryService.findCategories();
         req.setAttribute("categoriesModel", categories);
 
+        req.setAttribute("AddOrEdit", "Edytuj wydatek");
+
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/expenses_jsp/expense.jsp");
         requestDispatcher.forward(req, resp);
 

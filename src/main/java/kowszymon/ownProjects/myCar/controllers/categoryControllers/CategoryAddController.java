@@ -17,6 +17,8 @@ public class CategoryAddController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("category", new CategoryDto());
 
+        req.setAttribute("AddOrEdit", "Dodaj kategorię");
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/categories_jsp/category.jsp");
         requestDispatcher.forward(req, resp);
     }

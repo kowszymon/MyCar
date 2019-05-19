@@ -20,6 +20,8 @@ public class IncomeAddController extends HttpServlet {
         req.setAttribute("income", new IncomeDto());
 
         req.setAttribute("date", LocalDate.now(ZoneId.of("Poland")));
+
+        req.setAttribute("AddOrEdit", "Dodaj przychód");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/incomes_jsp/income.jsp");
         requestDispatcher.forward(req, resp);
     }

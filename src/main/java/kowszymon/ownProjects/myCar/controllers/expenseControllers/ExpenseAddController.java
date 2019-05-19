@@ -50,6 +50,9 @@ public class ExpenseAddController extends HttpServlet {
 
         }
 
+        req.setAttribute("AddOrEdit", "Dodaj wydatek");
+
+
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/expenses_jsp/expense.jsp");
 
