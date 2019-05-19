@@ -1,6 +1,7 @@
 package kowszymon.ownProjects.myCar.dao;
 
 import kowszymon.ownProjects.myCar.entities.Income;
+import kowszymon.ownProjects.myCar.exceptions.CannotDeleteItemException;
 
 import java.util.List;
 import java.util.Optional;

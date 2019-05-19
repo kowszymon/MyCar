@@ -6,6 +6,7 @@ import kowszymon.ownProjects.myCar.dao.IncomeDao;
 import kowszymon.ownProjects.myCar.dao.IncomeDaoImpl;
 import kowszymon.ownProjects.myCar.dto.IncomeDto;
 import kowszymon.ownProjects.myCar.entities.Income;
+import kowszymon.ownProjects.myCar.exceptions.CannotDeleteItemException;
 import kowszymon.ownProjects.myCar.exceptions.IncomeNotFoundException;
 
 import java.util.List;

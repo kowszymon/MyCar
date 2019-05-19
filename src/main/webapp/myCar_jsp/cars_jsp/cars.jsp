@@ -23,7 +23,7 @@
 
 <div class="container">
     <h2>Lista Twoich samochodów</h2>
-    <table class="table table-dark table-striped">
+    <table class="table table-dark table-striped w-auto">
         <thead>
         <tr>
             <th>Nazwa</th>

@@ -25,7 +25,7 @@
 
 <div class="container">
     <h2>Lista Twoich wydatków</h2>
-    <table class="table table-dark table-striped">
+    <table class="table table-dark table-striped w-auto">
         <thead>
         <tr>
             <th>Samochód</th>

@@ -24,9 +24,56 @@
 <body>
 <jsp:include page="/myCar_jsp/nav.jsp"/>
 
-<div class="container">
-    <h2>Lista kategorii wydatków</h2>
-    <table class="table table-dark table-striped">
+
+
+    <c:if test="${not empty expenseId}">
+        <div class="alert alert-danger" role="alert">
+                ${errorMsg} <a href=/expense?id=${expenseId}>Edytuj ten wydatek</a>
+        </div>
+    </c:if>
+
+<c:choose>
+    <c:when test="${not empty expenses}">
+            <div class="alert alert-danger" role="alert">
+                    ${errorMsg}
+            </div>
+        <div class="container w-auto">
+        <table class="table table-dark table-striped w-auto">
+            <thead>
+            <tr>
+                <th>Samochód</th>
+                <th>Kategoria</th>
+                <th>Data</th>
+                <th>Nazwa</th>
+                <th>Kwota</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${expenses}" var="expense">
+                <tr>
+                    <td>${expense.carDto.name}</td>
+                    <td>${expense.categoryDto.name}</td>
+                    <td>${expense.date}</td>
+                    <td>${expense.name}</td>
+                    <td>${expense.cost}</td>
+                    <td><a class="text-white" href="/expense?id=${expense.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
+                    <td><a class="text-white" href="/expense/delete?id=${expense.id}"
+                           onclick="return confirm('Czy na pewno chcesz usunąć ten wydatek?');">
+                        <span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
+
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+        </div>
+    </c:when>
+    <c:otherwise>
+
+        <div class="container">
+
+
+            <h2>Lista kategorii wydatków</h2>
+    <table class="table table-dark table-striped w-auto">
         <thead>
         <tr>
             <th>Nazwa kategorii</th>
@@ -46,6 +93,8 @@
     </table>
     <h4><a href="/category/add">Dodaj kategorię</a></h4>
 </div>
+</c:otherwise>
+    </c:choose>
 
 
 </body>
