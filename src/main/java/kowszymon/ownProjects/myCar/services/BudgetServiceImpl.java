@@ -40,9 +40,7 @@ public class BudgetServiceImpl implements BudgetService {
 
         BigDecimal expensesSum = BigDecimal.ZERO;
 
-        if (expenses.isEmpty()) {
-            return expensesSum;
-        } else {
+        if (!expenses.isEmpty()) {
             for (ExpenseDto expense : expenses) {
                 expensesSum = expensesSum.add(expense.getCost());
             }
@@ -55,4 +53,5 @@ public class BudgetServiceImpl implements BudgetService {
     public BigDecimal budgetCount() {
         return incomesSum().subtract(expensesSum());
     }
+
 }

@@ -56,19 +56,4 @@ public class CarDaoImpl implements CarDao {
 
     }
 
-    @Override
-    public void delete(Long id) {
-        Transaction transaction = null;
-        try {
-            Session session = sessionFactory.openSession();
-            transaction = session.beginTransaction();
-            Car car = session.find(Car.class, id);
-            session.remove(car);
-            transaction.commit();
-        } catch (HibernateException e) {
-            transaction.rollback();
-            logger.error("Problem with deleting tweet with id " + id + " " + e.getMessage());
-        }
-
-    }
 }

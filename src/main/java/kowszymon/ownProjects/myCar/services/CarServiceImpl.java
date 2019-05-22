@@ -49,8 +49,5 @@ public class CarServiceImpl implements CarService {
         carDao.save(car);
     }
 
-    @Override
-    public void delete(Long carId) {
-        carDao.delete(carId);
-    }
+
 }

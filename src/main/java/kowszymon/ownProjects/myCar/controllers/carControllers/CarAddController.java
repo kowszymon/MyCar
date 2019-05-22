@@ -29,6 +29,8 @@ public class CarAddController extends HttpServlet {
 
         req.setAttribute("AddOrEdit", "Dodaj samochód");
 
+        req.setAttribute("status", "ACTIVE");
+
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/cars_jsp/car.jsp");
         requestDispatcher.forward(req, resp);

@@ -3,6 +3,7 @@ package kowszymon.ownProjects.myCar.converters;
 import kowszymon.ownProjects.myCar.dto.CarDto;
 import kowszymon.ownProjects.myCar.dto.ExpenseDto;
 import kowszymon.ownProjects.myCar.entities.Car;
+import kowszymon.ownProjects.myCar.entities.CarStatus;
 import kowszymon.ownProjects.myCar.entities.Expense;
 import kowszymon.ownProjects.myCar.entities.Fuel;
 
@@ -31,6 +32,11 @@ public class CarConverter implements Function<CarDto, Car> {
         Fuel fuelEnum = Fuel.valueOf(fuel);
             car.setFuel(fuelEnum);}
 
+        if(carDto.getStatus() != null){
+            String status = carDto.getStatus();
+            CarStatus statusEnum = CarStatus.valueOf(status);
+            car.setStatus(statusEnum);}
+
         if(carDto.getId() != null) {
             car.setId(carDto.getId());
         }
@@ -46,7 +52,6 @@ public class CarConverter implements Function<CarDto, Car> {
         if(carDto.getModel() != null) {
             car.setModel(carDto.getModel());
         }
-
 
         car.setCourse(carDto.getCourse());
 

@@ -29,6 +29,8 @@ public class CarSaveController extends HttpServlet {
         String make = req.getParameter("make");
         String model = req.getParameter("model");
         String fuel = req.getParameter("fuel");
+        String status = req.getParameter("status");
+
         String fuelConsumption = req.getParameter("fuelConsumptionPer100km");
         String course = req.getParameter("course");
 
@@ -67,6 +69,10 @@ public class CarSaveController extends HttpServlet {
 
             if(!"".equals(fuel)) {
                 formCarDto.setFuel(fuel);
+            }
+
+            if(!"".equals(status)) {
+                formCarDto.setStatus(status);
             }
             formCarDto.setFuelConsumptionPer100km(carFuelConsumption);
             formCarDto.setCourse(carCourse);

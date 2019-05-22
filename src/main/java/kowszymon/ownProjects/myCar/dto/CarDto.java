@@ -15,19 +15,20 @@ public class CarDto {
 
     private String fuel;
 
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     private double fuelConsumptionPer100km;
 
     private int course;
 
-    private List<ExpenseDto> expenses;
-
-    public List<ExpenseDto> getExpenses() {
-        return expenses;
-    }
-
-    public void setExpenses(List<ExpenseDto> expenses) {
-        this.expenses = expenses;
-    }
 
     public Long getId() {
         return id;
@@ -89,7 +90,7 @@ public class CarDto {
     public CarDto() {
     }
 
-    public CarDto(Long id, String name, String make, String model, String fuel, double fuelConsumptionPer100km, int course, List<ExpenseDto> expenses) {
+    public CarDto(Long id, String name, String make, String model, String fuel, double fuelConsumptionPer100km, int course) {
         this.id = id;
         this.name = name;
         this.make = make;
@@ -97,6 +98,5 @@ public class CarDto {
         this.fuel = fuel;
         this.fuelConsumptionPer100km = fuelConsumptionPer100km;
         this.course = course;
-        this.expenses = expenses;
     }
 }

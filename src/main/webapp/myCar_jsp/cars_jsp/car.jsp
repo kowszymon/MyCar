@@ -73,6 +73,8 @@
         </div>
         <input type="hidden" name="id" value="${car.id}">
 
+        <input type="hidden" name="status" value="${status}">
+
         <button type="submit" class="btn btn-primary">Potwierdź</button>
     </form>
     </c:if>

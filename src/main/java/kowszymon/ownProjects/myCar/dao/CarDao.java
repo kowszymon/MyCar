@@ -13,5 +13,4 @@ public interface CarDao {
 
     void save(Car car);
 
-    void delete(Long id);
 }

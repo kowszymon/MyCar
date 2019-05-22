@@ -2,7 +2,6 @@ package kowszymon.ownProjects.myCar.entities;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "cars")
@@ -32,6 +31,18 @@ public class Car {
 
     @Column
     private int course;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private CarStatus status;
+
+    public CarStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(CarStatus status) {
+        this.status = status;
+    }
 
     public int getCourse() {
         return course;

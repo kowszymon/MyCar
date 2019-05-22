@@ -21,7 +21,23 @@
 <body>
 <jsp:include page="/myCar_jsp/nav.jsp"/>
 
+<c:if test="${not empty errorMsg}">
+    <div class="alert alert-danger" role="alert">
+            ${errorMsg}
+    </div>
+</c:if>
+
+
+<c:if test="${not empty message}">
+    <div class="alert alert-success" role="alert">
+            ${message}
+    </div>
+</c:if>
+
+
 <div class="container">
+
+
     <h2>Lista Twoich samochodów</h2>
     <table class="table table-dark table-striped w-auto">
         <thead>
@@ -44,9 +60,9 @@
             <td>${car.fuelConsumptionPer100km}</td>
             <td>${car.course}</td>
             <td><a class="text-white" href="/car?id=${car.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
-            <td><a class="text-white" href="/car/delete?id=${car.id}"
-                   onclick="return confirm('Czy na pewno chcesz usunąć ten samochód?');">
-                <span title="Usuń"><i class="fas fa-trash-alt"></i></span></a></td>
+            <td><a class="text-white" href="/car/archive?id=${car.id}"
+                   onclick="return confirm('Czy na pewno chcesz zarchiwizować ten samochód?');">
+                <span title="Archiwizuj"><i class="fas fa-trash-alt"></i></span></a></td>
 
         </tr>
         </c:forEach>

@@ -13,7 +13,5 @@ public interface CarService {
 
     void save(CarDto carDto);
 
-    void delete(Long carId);
-
 
 }
