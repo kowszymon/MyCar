@@ -1,6 +1,5 @@
 package kowszymon.ownProjects.myCar.entities;
 
-import java.math.BigInteger;
 
 public enum Fuel {
 

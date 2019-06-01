@@ -44,6 +44,10 @@ public class CarDtoConverter implements Function<Car, CarDto> {
             carDto.setFuel(car.getFuel().name());
         }
 
+        if(car.getStatus() != null) {
+            carDto.setStatus(car.getStatus().name());
+        }
+
 
         return carDto;
     }

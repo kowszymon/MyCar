@@ -9,6 +9,10 @@ public interface CarDao {
 
     List<Car> findAll();
 
+    List<Car> findActiveCars();
+
+    List<Car> findArchivedCars();
+
     Optional<Car> findById(Long id);
 
     void save(Car car);

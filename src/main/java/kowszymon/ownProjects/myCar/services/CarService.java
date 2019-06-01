@@ -9,6 +9,10 @@ public interface CarService {
 
     List<CarDto> findCars();
 
+    List<CarDto> findActiveCars();
+
+    List<CarDto> findArchivedCars();
+
     CarDto findCarById(Long carId) throws CarNotFoundException;
 
     void save(CarDto carDto);

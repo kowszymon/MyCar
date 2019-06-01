@@ -21,7 +21,7 @@ public class CostOfATripFormController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        List<CarDto> cars = carService.findCars();
+        List<CarDto> cars = carService.findActiveCars();
         req.setAttribute("carsModel", cars);
 
         if(cars.isEmpty()) {

@@ -28,7 +28,7 @@ public class ExpenseAddController extends HttpServlet {
 
         req.setAttribute("expense", new ExpenseDto());
 
-        List<CarDto> cars = carService.findCars();
+        List<CarDto> cars = carService.findActiveCars();
         req.setAttribute("carsModel", cars);
 
 

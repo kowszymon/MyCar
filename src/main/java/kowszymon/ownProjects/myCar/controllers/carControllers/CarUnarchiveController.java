@@ -1,7 +1,6 @@
 package kowszymon.ownProjects.myCar.controllers.carControllers;
 
 import kowszymon.ownProjects.myCar.dto.CarDto;
-import kowszymon.ownProjects.myCar.entities.Car;
 import kowszymon.ownProjects.myCar.exceptions.CarNotFoundException;
 import kowszymon.ownProjects.myCar.services.CarService;
 import kowszymon.ownProjects.myCar.services.CarServiceImpl;
@@ -15,21 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "carArchiveController", value = "/car/archive")
-public class CarArchiveController extends HttpServlet {
+@WebServlet(name = "carUnarchiveController", value = "/car/unarchive")
+public class CarUnarchiveController extends HttpServlet {
 
     CarService carService = new CarServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String id = req.getParameter("id");
 
         try {
             CarDto carDto = carService.findCarById(Long.valueOf(id));
-            carDto.setStatus("ARCHIVED");
+            carDto.setStatus("ACTIVE");
             carService.save(carDto);
-            req.setAttribute("message", "Samochód " + carDto.getName() + " został zarchiwizowany" );
+            req.setAttribute("message", "Samochód " + carDto.getName() + " został przywrócony" );
         } catch (CarNotFoundException e) {
             req.setAttribute("errorMsg", e.getMessage());
         }
@@ -39,6 +37,5 @@ public class CarArchiveController extends HttpServlet {
         req.setAttribute("carsModel", cars);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/cars_jsp/cars.jsp");
         requestDispatcher.forward(req, resp);
-
     }
 }

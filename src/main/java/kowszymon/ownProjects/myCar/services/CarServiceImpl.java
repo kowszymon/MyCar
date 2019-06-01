@@ -31,6 +31,22 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public List<CarDto> findActiveCars() {
+        List<Car> cars = carDao.findActiveCars();
+        return cars.stream()
+                .map(carDtoConverter)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CarDto> findArchivedCars() {
+        List<Car> cars = carDao.findArchivedCars();
+        return cars.stream()
+                .map(carDtoConverter)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public CarDto findCarById(Long carId) throws CarNotFoundException {
         Optional<Car> carOptional = carDao.findById(carId);
 

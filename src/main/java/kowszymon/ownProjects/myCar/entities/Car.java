@@ -52,13 +52,14 @@ public class Car {
         this.course = course;
     }
 
-    public Car(String name, String make, String model, Fuel fuel, double fuelConsumptionPer100km, int course) {
+    public Car(String name, String make, String model, Fuel fuel, double fuelConsumptionPer100km, int course, CarStatus status) {
         this.name = name;
         this.make = make;
         this.model = model;
         this.fuel = fuel;
         this.fuelConsumptionPer100km = fuelConsumptionPer100km;
         this.course = course;
+        this.status = status;
     }
 
     public Long getId() {
@@ -109,17 +110,8 @@ public class Car {
         this.fuelConsumptionPer100km = fuelConsumptionPer100km;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", make='" + make + '\'' +
-                ", model='" + model + '\'' +
-                ", fuel=" + fuel +
-                ", fuelConsumptionPer100km=" + fuelConsumptionPer100km +
-                '}';
-    }
+
+
 
     public Car() {
     }

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: User
-  Date: 2019-04-28
-  Time: 12:16
+  Date: 2019-05-22
+  Time: 22:11
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -38,7 +38,7 @@
 <div class="container">
 
 
-    <h2>Lista Twoich samochodów</h2>
+    <h2>Lista Twoich zarchiwizowanych samochodów</h2>
     <table class="table table-dark table-striped w-auto">
         <thead>
         <tr>
@@ -52,25 +52,23 @@
         </thead>
         <tbody>
         <c:forEach items="${carsModel}" var="car">
-        <tr>
-            <td>${car.name}</td>
-            <td>${car.make}</td>
-            <td>${car.model}</td>
-            <td>${car.fuel}</td>
-            <td>${car.fuelConsumptionPer100km}</td>
-            <td>${car.course}</td>
-            <td><a class="text-white" href="/car?id=${car.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
-            <td><a class="text-white" href="/car/archive?id=${car.id}"
-                   onclick="return confirm('Czy na pewno chcesz zarchiwizować ten samochód?');">
-                    <span title="Archiwizuj"><i class="fas fa-archive"></i></span></a></td>
+            <tr>
+                <td>${car.name}</td>
+                <td>${car.make}</td>
+                <td>${car.model}</td>
+                <td>${car.fuel}</td>
+                <td>${car.fuelConsumptionPer100km}</td>
+                <td>${car.course}</td>
+                <td><a class="text-white" href="/car?id=${car.id}"><span title="Edytuj"><i class="far fa-edit"></i></span></a></td>
+                <td><a class="text-white" href="/car/unarchive?id=${car.id}"
+                       onclick="return confirm('Czy na pewno chcesz przywrócić ten samochód?');">
+                    <span title="Przywróć"><i class="fas fa-undo"></i></span></a></td>
 
-        </tr>
+            </tr>
         </c:forEach>
         </tbody>
     </table>
-    <h4><a href="/car/add">Dodaj samochód</a></h4>
-    <br>
-    <h6><a href="/car/archived-list">Zobacz listę zarchiwizowanych samochodów</a></h6>
+    <h4><a href="/car/list"><-- powrót do listy aktywnych samochodów</a></h4>
 </div>
 
 

@@ -43,6 +43,7 @@ public class CarEditController extends HttpServlet {
             } else {
                 req.setAttribute("selectedFuel", carDto.getFuel());
             }
+            req.setAttribute("status", carDto.getStatus());
         } catch (CarNotFoundException e) {
             req.setAttribute("errorMsg", "Samochód o id " + carId + " nie został znaleziony w bazie");
         }

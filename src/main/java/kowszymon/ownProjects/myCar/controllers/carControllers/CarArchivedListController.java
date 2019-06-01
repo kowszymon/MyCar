@@ -1,10 +1,8 @@
 package kowszymon.ownProjects.myCar.controllers.carControllers;
 
-
 import kowszymon.ownProjects.myCar.dto.CarDto;
 import kowszymon.ownProjects.myCar.services.CarService;
 import kowszymon.ownProjects.myCar.services.CarServiceImpl;
-
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "carActiveListController", value = "/car/list")
-public class CarListController extends HttpServlet {
+@WebServlet(name = "carArchivedListController", value = "/car/archived-list")
+public class CarArchivedListController extends HttpServlet {
 
-    private CarService carService = new CarServiceImpl();
+    CarService carService = new CarServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        List<CarDto> cars = carService.findActiveCars();
+        List<CarDto> cars = carService.findArchivedCars();
 
         req.setAttribute("carsModel", cars);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/cars_jsp/cars.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/myCar_jsp/cars_jsp/carsArchived.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

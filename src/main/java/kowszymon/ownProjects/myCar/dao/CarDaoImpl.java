@@ -27,6 +27,21 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
+    public List<Car> findActiveCars() {
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("select c from Car c where status = 'ACTIVE'");
+        return (List<Car>)query.list();
+    }
+
+    @Override
+    public List<Car> findArchivedCars() {
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("select c from Car c where status = 'ARCHIVED'");
+        return (List<Car>)query.list();
+    }
+
+
+    @Override
     public Optional<Car> findById(Long id) {
         Session session = sessionFactory.openSession();
         Car car = null;
